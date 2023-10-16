@@ -1,0 +1,6 @@
+greening_price_sqm = float(7.61)
+square_m = float(input())
+greening_cost = float(greening_price_sqm * square_m)
+discount = float(greening_cost*18/100)
+print("The final price is: " + str(greening_cost - discount))
+print("The discount is: " + str(discount))
