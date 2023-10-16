@@ -3,38 +3,33 @@ flower_count = int(input())
 budget = int(input())
 
 price = 0
+discount = 0
 
 if flower_type == "Roses":
-    if flower_count <= 80:
-        price = 5
-    else:
-        price = (5 - (5 * 0.1))
+    price = 5
+    if flower_count > 80:
+        discount = 10
 elif flower_type == "Dahlias":
-    if flower_count <= 90:
-        price = 3.8
-    else:
-        price = (3.8 - (3.8 * 0.15))
+    price = 3.80
+    if flower_count > 90:
+        discount = 15
 elif flower_type == "Tulips":
-    if flower_count <= 80:
-        price = 2.8
-    else:
-        price = (2.8 - (2.8 * 0.15))
+    price = 2.80
+    if flower_count > 80:
+        discount = 15
 elif flower_type == "Narcissus":
+    price = 3
     if flower_count < 120:
-        price = (3 + (3 * 0.15))
-    else:
-        price = 3
+        discount = -15
 elif flower_type == "Gladiolus":
+    price = 2.50
     if flower_count < 80:
-        price = (2.5 + (2.5 * 0.2))
-    else:
-        price = 2.5
+        discount = -20
 else:
     pass
 
-if budget >= (flower_count * price):
-    money_left = budget - (flower_count * price)
-    print(f"Hey, you have a great garden with {flower_count} {flower_type} and {money_left:.2f} leva left.")
+final_cost = flower_count * (price - (price * discount /100))
+if budget >= final_cost:
+    print(f"Hey, you have a great garden with {flower_count} {flower_type} and {(budget - final_cost):.2f} leva left.")
 else:
-    money_left = (flower_count * price) - budget
-    print(f"Not enough money, you need {money_left:.2f} leva more.")
+    print(f"Not enough money, you need {(final_cost - budget):.2f} leva more.")
