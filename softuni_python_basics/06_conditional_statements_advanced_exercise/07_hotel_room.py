@@ -11,7 +11,7 @@ if month == "May" or month == "October":
     studio_cost = 50
     apart_cost = 65
 
-    if 14 > nights > 7:
+    if 14 >= nights > 7:
 
         studio_cost = studio_cost * 0.95
 
@@ -23,8 +23,8 @@ if month == "May" or month == "October":
 
     elif nights > 14:
 
-        studio_cost = (studio_cost * 0.7)
-        apart_cost = (apart_cost * 0.9)
+        studio_cost = studio_cost * 0.7
+        apart_cost = apart_cost * 0.9
 
         total_studio_cost = nights * studio_cost
         total_apartment_cost = nights * apart_cost
