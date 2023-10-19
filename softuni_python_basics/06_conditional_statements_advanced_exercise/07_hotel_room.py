@@ -10,6 +10,14 @@ if month == "May" or month == "October":
 
     studio_cost = 50
     apart_cost = 65
+    
+    if nights <= 7:
+
+        total_studio_cost = nights * studio_cost
+        total_apartment_cost = nights * apart_cost
+
+        print(f"Apartment: {total_apartment_cost:.2f} lv.")
+        print(f"Studio: {total_studio_cost:.2f} lv.")
 
     if 14 >= nights > 7:
 
@@ -23,8 +31,8 @@ if month == "May" or month == "October":
 
     elif nights > 14:
 
-        studio_cost = studio_cost * 0.7
-        apart_cost = apart_cost * 0.9
+        studio_cost = (studio_cost * 0.7)
+        apart_cost = (apart_cost * 0.9)
 
         total_studio_cost = nights * studio_cost
         total_apartment_cost = nights * apart_cost
@@ -32,8 +40,6 @@ if month == "May" or month == "October":
         print(f"Apartment: {total_apartment_cost:.2f} lv.")
         print(f"Studio: {total_studio_cost:.2f} lv.")
 
-    else:
-        pass
 
 elif month == "June" or month == "September":
 
@@ -65,7 +71,7 @@ elif month == "July" or month == "August":
     total_studio_cost = nights * studio_cost
   
     if nights > 14:
-        apart_cost = (apart_cost - (apart_cost * 0.1))
+        apart_cost = apart_cost * 0.9
         total_apartment_cost = nights * apart_cost
         print(f"Apartment: {total_apartment_cost:.2f} lv.")
     else:
