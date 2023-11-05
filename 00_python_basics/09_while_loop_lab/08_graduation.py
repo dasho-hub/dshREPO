@@ -1,13 +1,24 @@
-# student_name = input()
-# annual_grade = float(input())
-# grade_count = 0
-# sum_of_grades = 0
-# while annual_grade >= 4.00 and grade_count < 12:
-#     grade_count += 1
-#     annual_grade = float(input())
-#     sum_of_grades += annual_grade
-#     if annual_grade < 4:
-#         print(f"{student_name} has been excluded at {grade_count} grade")
-#         break
-# avg_grade = sum_of_grades / 12
-# print(f"{student_name} graduated. Average grade: {avg_grade :.2f}")
+
+student_name = input()
+current_class = 1
+sum_of_grades = 0
+was_excluded = False
+is_excluded = False
+
+while current_class <= 12:
+    current_grade = float(input())
+    if current_grade < 4:
+        if was_excluded == False:
+            was_excluded = True
+        else:
+            is_excluded = True
+            break
+        continue
+    current_class += 1
+    sum_of_grades += current_grade
+
+if is_excluded:
+    print(f"{student_name} has been excluded at {current_class} grade")
+else:
+    avg_grade = sum_of_grades / 12
+    print(f"{student_name} graduated. Average grade: {avg_grade :.2f}")
